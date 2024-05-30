@@ -4,5 +4,6 @@ vim.g.ale_fixers = {
     ['*'] = {'remove_trailing_lines', 'trim_whitespace'},
     ['javascript'] = {'prettier', 'eslint'},
     ['typescript'] = {'prettier', 'eslint'},
-    ['go'] = {'gofmt'}
+    ['go'] = {'gofmt'},
+    ['typescriptreact'] = {'prettier', 'eslint'},
 }
