@@ -33,7 +33,7 @@ What is Kickstart?
     or immediately breaking it into modular pieces. It's up to you!
 
     If you don't know anything about Lua, I recommend taking some time to read through
-    a guide. One possible example which will only take 10-15 minutes:
+ g  a guide. One possible example which will only take 10-15 minutes:
       - https://learnxinyminutes.com/docs/lua/
 
     After understanding a bit more about Lua, you can use `:help lua-guide` as a
@@ -345,22 +345,6 @@ require('lazy').setup({
     },
   },
 
-  {
-    'folke/noice.nvim',
-    event = 'VeryLazy',
-    opts = {
-      -- add any options here
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      'MunifTanjim/nui.nvim',
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      'rcarriga/nvim-notify',
-    },
-  },
-
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -375,58 +359,58 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  { -- Useful plugin to show you pending keybinds.
-    'folke/which-key.nvim',
-    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    opts = {
-      -- delay between pressing a key and opening which-key (milliseconds)
-      -- this setting is independent of vim.o.timeoutlen
-      delay = 0,
-      icons = {
-        -- set icon mappings to true if you have a Nerd Font
-        mappings = vim.g.have_nerd_font,
-        -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
-        -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
-        keys = vim.g.have_nerd_font and {} or {
-          Up = '<Up> ',
-          Down = '<Down> ',
-          Left = '<Left> ',
-          Right = '<Right> ',
-          C = '<C-…> ',
-          M = '<M-…> ',
-          D = '<D-…> ',
-          S = '<S-…> ',
-          CR = '<CR> ',
-          Esc = '<Esc> ',
-          ScrollWheelDown = '<ScrollWheelDown> ',
-          ScrollWheelUp = '<ScrollWheelUp> ',
-          NL = '<NL> ',
-          BS = '<BS> ',
-          Space = '<Space> ',
-          Tab = '<Tab> ',
-          F1 = '<F1>',
-          F2 = '<F2>',
-          F3 = '<F3>',
-          F4 = '<F4>',
-          F5 = '<F5>',
-          F6 = '<F6>',
-          F7 = '<F7>',
-          F8 = '<F8>',
-          F9 = '<F9>',
-          F10 = '<F10>',
-          F11 = '<F11>',
-          F12 = '<F12>',
-        },
-      },
+  --{ -- Useful plugin to show you pending keybinds.
+  --  'folke/which-key.nvim',
+  --  event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+  --  opts = {
+  --    -- delay between pressing a key and opening which-key (milliseconds)
+  --    -- this setting is independent of vim.o.timeoutlen
+  --    delay = 0,
+  --    icons = {
+  --      -- set icon mappings to true if you have a Nerd Font
+  --      mappings = vim.g.have_nerd_font,
+  --      -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
+  --      -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
+  --      keys = vim.g.have_nerd_font and {} or {
+  --        Up = '<Up> ',
+  --        Down = '<Down> ',
+  --        Left = '<Left> ',
+  --        Right = '<Right> ',
+  --        C = '<C-…> ',
+  --        M = '<M-…> ',
+  --        D = '<D-…> ',
+  --        S = '<S-…> ',
+  --        CR = '<CR> ',
+  --        Esc = '<Esc> ',
+  --        ScrollWheelDown = '<ScrollWheelDown> ',
+  --        ScrollWheelUp = '<ScrollWheelUp> ',
+  --        NL = '<NL> ',
+  --        BS = '<BS> ',
+  --        Space = '<Space> ',
+  --        Tab = '<Tab> ',
+  --        F1 = '<F1>',
+  --        F2 = '<F2>',
+  --        F3 = '<F3>',
+  --        F4 = '<F4>',
+  --        F5 = '<F5>',
+  --        F6 = '<F6>',
+  --        F7 = '<F7>',
+  --        F8 = '<F8>',
+  --        F9 = '<F9>',
+  --        F10 = '<F10>',
+  --        F11 = '<F11>',
+  --        F12 = '<F12>',
+  --      },
+  --    },
 
-      -- Document existing key chains
-      spec = {
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-      },
-    },
-  },
+  --    -- Document existing key chains
+  --    spec = {
+  --      { '<leader>s', group = '[S]earch' },
+  --      { '<leader>t', group = '[T]oggle' },
+  --      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+  --    },
+  --  },
+  --},
 
   -- NOTE: Plugins can specify dependencies.
   --
@@ -506,7 +490,13 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Search Git Files' })
+      -- vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Search Git Files' })
+      vim.keymap.set('n', '<C-p>', function()
+        local ok = pcall(builtin.git_files, { show_untracked = true })
+        if not ok then
+          builtin.find_files()
+        end
+      end, { noremap = true, silent = true })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -516,13 +506,15 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', function()
-        -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-        })
-      end, { desc = '[/] Fuzzily search in current buffer' })
+      -- vim.keymap.set('n', '<leader>/', function()
+      --   -- You can pass additional configuration to Telescope to change the theme, layout, etc.
+      --   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      --     winblend = 10,
+      --     previewer = false,
+      --   })
+      -- end, { desc = '[/] Fuzzily search in current buffer' })
+
+      vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
@@ -763,6 +755,7 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
+        prismals = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -998,6 +991,22 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      require('mini.files').setup()
+      vim.keymap.set('n', '<leader>n', function()
+        local MiniFiles = require 'mini.files'
+        local _ = MiniFiles.close() or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+        vim.defer_fn(function()
+          MiniFiles.reveal_cwd()
+        end, 30)
+      end)
+
+      --require('mini.comment').setup {
+      --  mappings = {
+      --    -- comment = '<C-/>',
+      --    comment_line = '<C-/>',
+      --  },
+      --}
+
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
@@ -1017,6 +1026,7 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
+
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -1054,16 +1064,16 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
@@ -1114,3 +1124,57 @@ require('noice').setup {
     lsp_doc_border = false, -- add a border to hover docs and signature help
   },
 }
+
+local harpoon = require 'harpoon'
+harpoon:setup {}
+
+local conf = require('telescope.config').values
+local function toggle_telescope_harpoon(harpoon_files)
+  local file_paths = {}
+  for _, item in ipairs(harpoon_files.items) do
+    table.insert(file_paths, item.value)
+  end
+
+  require('telescope.pickers')
+    .new({}, {
+      prompt_title = 'Harpoon',
+      finder = require('telescope.finders').new_table {
+        results = file_paths,
+      },
+      previewer = conf.file_previewer {},
+      sorter = conf.generic_sorter {},
+    })
+    :find()
+end
+
+vim.keymap.set('n', '<leader>a', function()
+  harpoon:list():add()
+end)
+
+vim.keymap.set('n', '<leader>1', function()
+  harpoon:list():select(1)
+end)
+vim.keymap.set('n', '<leader>2', function()
+  harpoon:list():select(2)
+end)
+vim.keymap.set('n', '<leader>3', function()
+  harpoon:list():select(3)
+end)
+vim.keymap.set('n', '<leader>4', function()
+  harpoon:list():select(4)
+end)
+vim.keymap.set('n', '<leader>5', function()
+  harpoon:list():select(4)
+end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set('n', '<C-S-P>', function()
+  harpoon:list():prev()
+end)
+vim.keymap.set('n', '<C-S-N>', function()
+  harpoon:list():next()
+end)
+
+vim.keymap.set('n', '<leader>h', function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = 'Open harpoon window' })
